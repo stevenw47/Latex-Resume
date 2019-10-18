@@ -18,13 +18,14 @@
 \usepackage{etoolbox}
 \robustify\cftdotfill
 
-% someone said add this in comments
+% someone said add this
 \usepackage{array}
 
 % own
 \usepackage{fontawesome} % for font awesome icons
 \usepackage{enumitem}
 \usepackage{hyperref} % for hyperlinks
+\usepackage{multirow} % for multirow (for name)
 
 
 %-----------------------------------------------------------
@@ -54,7 +55,7 @@
 \setlength{\textwidth}{7in}
 %previous-\setlength{\topmargin}{-0.3in}
 %decrease topmargin to reduce white space on top
-\setlength{\topmargin}{-0.8in}
+\setlength{\topmargin}{-0.72in}
 \setlength{\topskip}{0in}
 \setlength{\voffset}{0.1in}
 
@@ -100,25 +101,25 @@
 %item used for last time to reduce white space between last item and new header
 \newcommand{\resitemlast}[1]{\item #1 \vspace{-7pt}}
 
-%normal item, synonomous with resitem
+%normal item, synonymous with resitem
 \newcommand{\resitemrest}[1]{\item #1 \vspace{-2pt}}
 %-----------------------------------------------------------
 
 \begin{document}
 
+
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-\textbf{\Large Steven Lok Ngai Wong} & \faicon{envelope} \href{mailto:slnwong@edu.uwaterloo.ca}{slnwong@edu.uwaterloo.ca} \\
-(226) 581-5679 & \faicon{github} \href{https://www.github.com/stevenw47}{github.com/stevenw47} \\
-% x & y \\
+\multirow{2}{*}{\textbf{\Huge Steven Wong}} & \faicon{envelope} \href{mailto:slnwong@edu.uwaterloo.ca}{slnwong@edu.uwaterloo.ca} \\
+& \faicon{github} \href{https://www.github.com/stevenw47}{github.com/stevenw47} \\
 \end{tabular*}
-\\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \resheadingfirst{Technical Skills}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}[topsep=0pt, itemsep=0pt] % topsep removes spacing on top
-\item JavaScript (Vue, jQuery), Python (Django), C++, C, Racket/Scheme, Git, \LaTeX.
+% \begin{itemize}[topsep=0pt, itemsep=0pt] % topsep removes spacing on top
+\begin{itemize}[topsep=0pt] % topsep removes spacing on top
+\item Python (Django), JavaScript (React, Vue, Node), C++, Git, Heroku, Scheme, \LaTeX.
 \end{itemize}
 
 
@@ -128,18 +129,28 @@
 \begin{itemize}[topsep=0pt] % topsep removes spacing on top
 \item
 	\ressubheading
+	{Secret Mission Software}{Toronto, Canada}
+	{Software Developer}{May 2019 - Aug. 2019}
+	\begin{itemize}[leftmargin=*]
+		\resitem{Built and integrated features, including floor plan editing, XML generation, and push notifications, using \textbf{React} and \textbf{Django} for the \textit{Findspace} client.}
+		\resitem{Architected and developed internal SDKs with \textbf{Node} and \textbf{MongoDB} to automate company workflows via webhooks and integrations on an \textbf{Express} server.}
+		\resitem{Automated and managed the migration of old client data to their new system, reducing the time spent per migration by $\sim$35\%.}
+	\end{itemize}
+
+\item
+	\ressubheading
 	{Greatwall Ledlight Co. LTD}{Hong Kong}
 	{Software Developer}{June 2018 - Aug. 2018}
-	\begin{itemize}
-		\resitem{Developed an internal tool with \textbf{Django} and \textbf{PostgreSQL} to help track and manage orders, decreasing the time spent per sale.}
-		\resitem{Experimented with visualizing data using \textbf{Chart.js} to help motivate future business plans.}
+	\begin{itemize}[leftmargin=*]
+		\resitem{Developed an internal system with \textbf{Django} and \textbf{PostgreSQL} to help track and manage orders, decreasing the time spent per sale.}
+		\resitem{Integrated data visualizations with filtering using Chart.js to guide future business decisions.}
 	\end{itemize}
 
 \item
 	\ressubheading
 	{eBridges}{Remote}
 	{Web Developer}{May 2018 - Aug. 2018}
-	\begin{itemize}
+	\begin{itemize}[leftmargin=*]
 		\resitem{Created an e-commerce marketplace platform using \textbf{Django} and \textbf{PostgreSQL}.}
 		\resitem{Implemented features including search, ratings, translations, messaging, and an admin panel.}
 		\resitemlast{Integrated multiple APIs such as EasyPost for shipping and Braintree for payments.}
@@ -153,48 +164,31 @@
 \begin{itemize}[topsep=0pt] % topsep removes spacing on top
 \item
 	\ressubheading
-	{textbookify \textmd{(UofTHacks VI)}}{\href{https://github.com/stevenw47/textbookify}{\faicon{github}}}
-	{Platform for university students to buy/sell used textbooks via a matching system}{}
-	\begin{itemize}[itemsep=0pt]
-		\resitem{Implemented and designed the frontend using \textbf{Vue} and \textbf{Vuex} for state management.}
-		\resitem{Retrieved matches for the user and posted buy/sell data by performing requests with \textbf{Axios}.}
-	\end{itemize}
-
-\item
-	\ressubheading
 	{koup}{\href{https://github.com/stevenw47/koup}{\faicon{github}}}
 	{Replica of the board game `Coup', meant for augmented real-life gameplay}{}
-	\begin{itemize}[itemsep=0pt]
+	% \begin{itemize}[itemsep=0pt]
+	\begin{itemize}[leftmargin=*]
 		\resitem{Created a responsive \textbf{Vue} webapp with \textbf{Vue Apollo} to send \textbf{GraphQL} queries/mutations.}
+		\resitem{Implemented the core game logic with a room system for concurrent games.}
 		\resitem{Modularized the UI into separate components to easily incorporate new features and changes.}
-		\resitem{Implemented the core game features (income, swap, kill, reveal) with a room system for concurrent games.}
 	\end{itemize}
 
 \item
 	\ressubheading
 	{Vm}{}
 	{Vim-like text editor}{}
-	\begin{itemize}[itemsep=0pt]
+	\begin{itemize}[leftmargin=*]
 		\resitem{Worked on the view and model (internal file logic) using \textbf{C++} and the \textbf{ncurses} library.}
-		\resitem{Incorporated various OOP design principles, such as the decorator pattern, strategy pattern, and template method pattern, to provide strong abstractions.}
+		\resitem{Incorporated OOP design principles, including the decorator, strategy, and template method pattern, to provide strong abstractions.}
 	\end{itemize}
 
 \item
 	\ressubheading
-	{DreamCatcher \textmd{(YHack 2017)}}{\href{https://github.com/stevenw47/DreamCatcher}{\faicon{github}}}
-	{Webapp that detects whether people in an image are sleeping or awake}{}
-	\begin{itemize}[itemsep=0pt]
-		\resitem{Implemented a SPA using \textbf{jQuery} for users to upload an image to analyze.}
-		\resitem{Utilized Clarifai's API to train and use a custom image recognition model.}
-	\end{itemize}
-
-\item
-	\ressubheading
-	{If You Give a Mouse a Sandwich}{\href{https://github.com/stevenw47/If-You-Give-a-Mouse-a-Sandwich}{\faicon{github}}}
-	{Point-and-click escape room game}{}
-	\begin{itemize}[itemsep=0pt]
-		\resitem{Created an interactive browser game using \textbf{Processing.js} and deployed it using \textbf{Heroku}.}
-		\resitemlast{Tested different interactions to find gameplay bugs/glitches and fixed them.}
+	{textbookify \textmd{(UofTHacks VI)}}{\href{https://github.com/stevenw47/textbookify}{\faicon{github}}}
+	{Platform for university students to buy/sell used textbooks via a matching system}{}
+	\begin{itemize}[leftmargin=*]
+		\resitem{Implemented and designed the frontend using \textbf{Vue} and \textbf{Vuex} for state management.}
+		\resitemlast{Integrated with our RESTful API using Axios to retrieve relevant matches for the user.}
 	\end{itemize}
 \end{itemize}
 
@@ -203,10 +197,10 @@
 \resheadingrest{Education}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}[topsep=0pt] % topsep removes spacing on top
-\item
-	\ressubheading{University of Waterloo}{Waterloo, ON}{Candidate for Bachelor of Mathematics in Computer Science, Honours Co-op}{2017 - Present}
-	\begin{itemize}[]
-		\resitemlast{3.8 GPA, Term Dean's Honours List in 1A, 1B.}
+\item % Bachelor of Mathematics
+	\ressubheading{University of Waterloo}{Waterloo, Canada}{BMath in Computer Science and Combinatorics \& Optimization}{2017 - Present}
+	\begin{itemize}[leftmargin=*]
+		\resitemlast{3.86 GPA, Term Dean's Honours List}
 	\end{itemize}
 \end{itemize}
 
