@@ -1,6 +1,6 @@
 # Latex Resume
 
-This is my resume (last updated January 21, 2019).
+This is my resume.
 
 It is typesetted in LaTeX because:
 
