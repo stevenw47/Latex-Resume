@@ -81,7 +81,7 @@
 %Own custom commands to adjust white space
 
 %heading used at the top to provide white space between header and first heading
-\newcommand{\resheadingfirst}[1]{\vspace{3pt}
+\newcommand{\resheadingfirst}[1]{\vspace{2pt}
   \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
     \begin{shaded} %\setlength{\fboxrule}{0pt} - removes black border on heading
 \setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}} % removed \sffamily{} inside the \textbf{} after shadecolorB
@@ -90,7 +90,7 @@
 }
 
 %heading used not at the top to reduce white space between headings
-\newcommand{\resheadingrest}[1]{\vspace{0pt}
+\newcommand{\resheadingrest}[1]{\vspace{-6pt}
   \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
     \begin{shaded}
 \setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}} % removed \sffamily{} inside the \textbf{} after shadecolorB
@@ -109,8 +109,8 @@
 
 
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-\multirow{2}{*}{\textbf{\Huge Steven Wong}} & \faicon{envelope} \href{mailto:slnwong@edu.uwaterloo.ca}{slnwong@edu.uwaterloo.ca} \\
-& \faicon{github} \href{https://www.github.com/stevenw47}{github.com/stevenw47} \\
+	\multirow{2}{*}{\textbf{\Huge Steven Wong}} & \faicon{envelope} \href{mailto:slnwong@uwaterloo.ca}{slnwong@uwaterloo.ca} \\
+	& \faicon{github} \href{https://www.github.com/stevenw47}{github.com/stevenw47} \\
 \end{tabular*}
 
 
@@ -119,7 +119,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{itemize}[topsep=0pt, itemsep=0pt] % topsep removes spacing on top
 \begin{itemize}[topsep=0pt] % topsep removes spacing on top
-\item Python (Django), JavaScript (React, Vue, Node.js), C++, C, Git, Heroku, Scheme, \LaTeX.
+	\item JavaScript/TypeScript (React, Node.js), Python (Django), C++, Git, Heroku, Scheme, \LaTeX.
 \end{itemize}
 
 
@@ -127,34 +127,41 @@
 \resheadingrest{Experience}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}[topsep=0pt] % topsep removes spacing on top
-\item
-	\ressubheading
-	{Secret Mission Software}{Toronto, Canada}
-	{Software Developer}{May 2019 - Aug. 2019}
-	\begin{itemize}[leftmargin=*]
-		\resitem{Built and integrated features using \textbf{React} and \textbf{Django}, including floor plan editing, XML generation, and push notifications, for the Findspace client.}
-		\resitem{Developed SDKs with \textbf{Node.js} to automate company workflows, such as ordering groceries and updating ticket statuses, through an \textbf{Express} server with \textbf{MongoDB} and webhooks.}
-		\resitem{Automated the migration of old client data, reducing the time spent per migration by $\sim$35\%.}
-	\end{itemize}
+	\item
+	      \ressubheading
+	      {BioRender}{Toronto, Canada}
+	      {Software Developer}{Jan. 2020 - May 2020}
+	      \begin{itemize}[leftmargin=*]
+	      	\resitem{Improved the premium user experience by implementing features such as gradient shape fill, icon brushes, and better canvas resizing, using \textbf{React}, \textbf{TypeScript}, and \textbf{Fabric.js}.}
+	      	\resitem{Added many dynamic shapes (polygons, stars, arrows, brackets, etc.) into the canvas editor, reducing the need for basic static icons that users cannot customize.}
+	      	\resitem{Led the development of a major priority for the company (details undisclosed).}
+	      \end{itemize}
 
-\item
-	\ressubheading
-	{Greatwall Ledlight Co. LTD}{Hong Kong}
-	{Software Developer}{June 2018 - Aug. 2018}
-	\begin{itemize}[leftmargin=*]
-		\resitem{Developed an internal system with \textbf{Django} to streamline the process of tracking and managing customer orders and shipments, improving the efficiency of each sale.}
-		\resitem{Integrated data visualizations with filtering using \textbf{Chart.js} to guide future business decisions.}
-	\end{itemize}
+	\item
+	      \ressubheading
+	      {Secret Mission Software}{Toronto, Canada}
+	      {Software Developer}{May 2019 - Aug. 2019}
+	      \begin{itemize}[leftmargin=*]
+	      	\resitem{Built and integrated features using \textbf{React}, \textbf{Django}, and \textbf{PostgreSQL}, including floor plan editing, XML generation, and push notifications, for the Findspace client.}
+	      	\resitem{Developed SDKs to automate company workflows using \textbf{Express} and \textbf{MongoDB}.}
+	      	\resitem{Automated the migration of old client data, reducing the time spent per migration by $\sim$33\%.}
+	      \end{itemize}
 
-\item
-	\ressubheading
-	{eBridges}{Remote}
-	{Web Developer}{May 2018 - Aug. 2018}
-	\begin{itemize}[leftmargin=*]
-		\resitem{Created an e-commerce marketplace platform using \textbf{Django} and \textbf{PostgreSQL}.}
-		\resitem{Implemented features including search, ratings, translations, messaging, and an admin panel.}
-		\resitemlast{Integrated external APIs such as EasyPost for shipping and Braintree for payments.}
-	\end{itemize}
+	\item
+	      \ressubheading
+	      {Greatwall Ledlight Co. LTD}{Hong Kong}
+	      {Software Developer}{June 2018 - Aug. 2018}
+	      \begin{itemize}[leftmargin=*]
+	      	\resitem{Developed an internal system with \textbf{Django} to streamline the process of tracking and managing customer orders and shipments, improving the efficiency of each sale.}
+	      \end{itemize}
+
+	\item
+	      \ressubheading
+	      {eBridges}{Remote}
+	      {Web Developer}{May 2018 - Aug. 2018}
+	      \begin{itemize}[leftmargin=*]
+	      	\resitemlast{Created an e-commerce marketplace platform using \textbf{Django} and \textbf{PostgreSQL}.}\
+	      \end{itemize}
 \end{itemize}
 
 
@@ -162,33 +169,32 @@
 \resheadingrest{Projects}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}[topsep=0pt] % topsep removes spacing on top
-\item
-	\ressubheading
-	{koup}{\href{https://github.com/stevenw47/koup}{\faicon{github}}}
-	{Replica of the board game `Coup', meant for augmented real-life gameplay}{}
-	\begin{itemize}[leftmargin=*]
-		\resitem{Created a responsive \textbf{Vue} webapp and modularized the UI to easily add and swap components.}
-		\resitem{Implemented the core game logic with a room system to allow for concurrent games.}
-		\resitem{Used \textbf{Vue Apollo} to send \textbf{GraphQL} queries \& mutations for updating the player's cards.}
-	\end{itemize}
+	\item
+	      \ressubheading
+	      {uwScheduler}{\href{https://github.com/stevenw47/uwScheduler}{\faicon{github}}}
+	      {To schedule your UWaterloo courses (WIP)}{}
+	      \begin{itemize}[leftmargin=*]
+	      	\resitem{Developed a calendar-like dashboard in \textbf{React} for students to input courses they are interested in and visually see all course offerings.}
+	      	\resitem{Generalized the interface of the data required to allow for easy extension to different universities.}
+	      \end{itemize}
 
-\item
-	\ressubheading
-	{Vm}{}
-	{Vim-like text editor}{}
-	\begin{itemize}[leftmargin=*]
-		\resitem{Implemented classes in \textbf{C++14} to perform file operations (e.g. insert, search, delete, save), and to correctly render the screen and cursor using \textbf{ncurses}.}
-		\resitem{Used OOP design, including the decorator and template method pattern, for strong abstraction.}
-	\end{itemize}
+	\item
+	      \ressubheading
+	      {koup}{\href{https://github.com/stevenw47/koup}{\faicon{github}}}
+	      {Replica of the board game `Coup', meant for augmented real-life gameplay}{}
+	      \begin{itemize}[leftmargin=*]
+	      	\resitem{Implemented the core game in \textbf{Vue} with a room system to allow for concurrent games.}
+	      	\resitem{Used \textbf{Vue Apollo} to send \textbf{GraphQL} queries \& mutations for updating the player's cards.}
+	      \end{itemize}
 
-\item
-	\ressubheading
-	{textbookify \textmd{(UofTHacks VI)}}{\href{https://github.com/stevenw47/textbookify}{\faicon{github}}}
-	{Platform for university students to buy/sell used textbooks via a matching system}{}
-	\begin{itemize}[leftmargin=*]
-		\resitem{Developed the frontend using \textbf{Vue} and designed a clean layout for users to see textbooks they are interested in, as well as the current market.}
-		\resitemlast{Integrated with our RESTful API using Axios to retrieve relevant matches for the user.}
-	\end{itemize}
+	\item
+	      \ressubheading
+	      {Vm}{}
+	      {Vim-like text editor}{}
+	      \begin{itemize}[leftmargin=*]
+	      	\resitem{Created classes in \textbf{C++14} to perform file operations and render the display using \textbf{ncurses}.}
+	      	\resitemlast{Used \textbf{OOP} design, including the decorator and template method pattern, for strong abstraction.}
+	      \end{itemize}
 \end{itemize}
 
 
@@ -196,11 +202,11 @@
 \resheadingrest{Education}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}[topsep=0pt] % topsep removes spacing on top
-\item % Bachelor of Mathematics
-	\ressubheading{University of Waterloo}{Waterloo, Canada}{BMath in Computer Science and Combinatorics \& Optimization}{2017 - Present}
-	\begin{itemize}[leftmargin=*]
-		\resitemlast{3.86 GPA, Term Dean's Honours List}
-	\end{itemize}
+	\item % Bachelor of Mathematics
+	      \ressubheading{University of Waterloo}{Waterloo, Canada}{BMath in Computer Science and Combinatorics \& Optimization}{2017 - Present}
+	      \begin{itemize}[leftmargin=*]
+	      	\resitemlast{3.88 GPA, Term Dean's Honours List}
+	      \end{itemize}
 \end{itemize}
 
 \end{document}
