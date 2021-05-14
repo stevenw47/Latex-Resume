@@ -55,7 +55,7 @@
 \setlength{\textwidth}{7in}
 %previous-\setlength{\topmargin}{-0.3in}
 %decrease topmargin to reduce white space on top
-\setlength{\topmargin}{-0.72in}
+\setlength{\topmargin}{-0.85in}
 \setlength{\topskip}{0in}
 \setlength{\voffset}{0.1in}
 
@@ -63,14 +63,14 @@
 %-----------------------------------------------------------
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{\vspace{8pt}
+\newcommand{\resheading}[1]{\vspace{-6pt}
   \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
     \begin{shaded}
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}
     \end{shaded}
   }\vspace{-5pt}
 }
-\newcommand{\ressubheading}[4]{
+\newcommand{\ressubheading}[4]{\vspace{-1pt}
 \begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
 		\textbf{#1} & #2 \\
 		\textit{#3} & \textit{#4} \\
@@ -80,66 +80,45 @@
 %-----------------------------------------------------------
 %Own custom commands to adjust white space
 
-%heading used at the top to provide white space between header and first heading
-\newcommand{\resheadingfirst}[1]{\vspace{2pt}
-  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
-    \begin{shaded} %\setlength{\fboxrule}{0pt} - removes black border on heading
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}} % removed \sffamily{} inside the \textbf{} after shadecolorB
-    \end{shaded}
-  }\vspace{-5pt}
-}
-
-%heading used not at the top to reduce white space between headings
-\newcommand{\resheadingrest}[1]{\vspace{-6pt}
-  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
-    \begin{shaded}
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}} % removed \sffamily{} inside the \textbf{} after shadecolorB
-    \end{shaded}
-  }\vspace{-5pt}
-}
-
-%item used for last time to reduce white space between last item and new header
-\newcommand{\resitemlast}[1]{\item #1 \vspace{-7pt}}
-
-%normal item, synonymous with resitem
-\newcommand{\resitemrest}[1]{\item #1 \vspace{-2pt}}
+%item used for last item to reduce white space between last item and new header
+\newcommand{\resitemlast}[1]{\item #1 \vspace{-6pt}}
 %-----------------------------------------------------------
+
+
 
 \begin{document}
 
-
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+	\multirow{2}{*}{\textbf{\Huge Steven Wong}} & \href{mailto:slnwong@uwaterloo.ca}{slnwong@uwaterloo.ca \faicon{envelope}} \\
+	& \href{https://www.linkedin.com/in/stevenlnwong/}{stevenlnwong \faicon{linkedin}} \\
+	US Citizen & \href{https://www.github.com/stevenw47}{stevenw47 \faicon{github}}
+\end{tabular*}
+% \vspace{-8pt}
 % \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
 % 	\multirow{2}{*}{\textbf{\Huge Steven Wong}} & \faicon{envelope} \href{mailto:slnwong@uwaterloo.ca}{slnwong@uwaterloo.ca} \\
-% 	& \faicon{github} \href{https://www.github.com/stevenw47}{github.com/stevenw47} \\
-% 	US Citizen & \faicon{linkedin} \href{https://www.linkedin.com/in/stevenlnwong/}{linkedin.com/in/stevenlnwong}
+% 	& \faicon{github} \href{https://www.github.com/stevenw47}{github.com/stevenw47}
 % \end{tabular*}
-% \vspace{-6pt}
-\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-	\multirow{2}{*}{\textbf{\Huge Steven Wong}} & \faicon{envelope} \href{mailto:slnwong@uwaterloo.ca}{slnwong@uwaterloo.ca} \\
-	& \faicon{github} \href{https://www.github.com/stevenw47}{github.com/stevenw47}
-\end{tabular*}
-\vspace{-4pt}
+% \vspace{-4pt}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheadingfirst{Technical Skills}
+\resheading{Technical Skills}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{itemize}[topsep=0pt, itemsep=0pt] % topsep removes spacing on top
-\begin{itemize}[topsep=0pt] % topsep removes spacing on top
-	\item Python (Django), JavaScript/TypeScript (React, Node.js), Go, C++, Git, Docker, Heroku, \LaTeX.
+\begin{itemize}[topsep=0pt]
+	\item Python (Django, NumPy), JavaScript (React, Node.js), Go, C++, Git, Docker.
 \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheadingrest{Experience}
+\resheading{Experience}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}[topsep=0pt] % topsep removes spacing on top
+\begin{itemize}[topsep=0pt]
 	\item
 	      \ressubheading
 	      {SAP}{Waterloo, Canada}
-	      {Software Developer}{Sept. 2020 - Present}
+	      {Software Developer}{Sept. 2020 - Dec. 2020}
 	      \begin{itemize}[leftmargin=*]
-		      \resitem{Working in the SAP HANA streaming analytics team using \textbf{Java}.}
+		      \resitem{Worked in the streaming analytics team.}
 	      \end{itemize}
 
 	\item
@@ -147,8 +126,9 @@
 	      {BioRender}{Toronto, Canada}
 	      {Software Developer}{Jan. 2020 - May 2020}
 	      \begin{itemize}[leftmargin=*]
-		      \resitem{Improved the premium user experience by implementing features such as gradient shape fill, icon brushes, and better canvas resizing, using \textbf{React}, \textbf{TypeScript}, and \textbf{Fabric.js}.}
-		      \resitem{Added many dynamic shapes (polygons, stars, arrows, brackets, etc.) into the canvas editor, eliminating the need for numerous static icons that users cannot customize.}
+		      %   \resitem{Improved the premium user experience by implementing gradient shape fill, icon brushes, and better canvas resizing, using \textbf{React} with \textbf{TypeScript} and \textbf{Fabric.js}.}
+		      \resitem{Enhanced the graphical toolkit for premium users using \textbf{React}, \textbf{TypeScript}, and \textbf{Fabric.js}.}
+		      \resitem{Implemented many new customizable shapes in the canvas editor, incorporating OOP concepts (such as SOLID and the decorator pattern) for strong abstraction.}
 		      \resitem{Designed and developed a major priority for the company (details undisclosed).}
 	      \end{itemize}
 
@@ -157,31 +137,40 @@
 	      {Secret Mission Software}{Toronto, Canada}
 	      {Software Developer}{May 2019 - Aug. 2019}
 	      \begin{itemize}[leftmargin=*]
-		      \resitem{Built and integrated features using \textbf{React}, \textbf{Django}, and \textbf{PostgreSQL}, including floor plan editing, XML generation, and push notifications, for the Findspace client.}
-		      \resitem{Developed SDKs to automate company workflows using \textbf{Express} and \textbf{MongoDB}.}
+		      \resitem{Built and integrated features using \textbf{React}, \textbf{Python}, and \textbf{PostgreSQL}, including floor plan editing, XML generation, and push notifications, for the Findspace client.}
+		      \resitem{Developed SDKs using \textbf{Express} and \textbf{MongoDB} to automate company workflows.}
 		      \resitem{Automated the migration of old client data, reducing the time spent per migration by $\sim$33\%.}
 	      \end{itemize}
 
 	\item
 	      \ressubheading
-	      {Greatwall Ledlight Co. LTD}{Hong Kong}
+	      {Greatwall Ledlight}{Hong Kong}
 	      {Software Developer}{June 2018 - Aug. 2018}
 	      \begin{itemize}[leftmargin=*]
-		      \resitemlast{Developed an internal system with \textbf{Django} to streamline the process of tracking and managing customer orders and shipments, improving the efficiency of each sale.}
+		      \resitemlast{Developed an internal system with \textbf{Django} to streamline the process of tracking and managing customer orders and shipments.}
 	      \end{itemize}
 \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheadingrest{Projects}
+\resheading{Projects}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}[topsep=0pt] % topsep removes spacing on top
+\begin{itemize}[topsep=0pt]
+	\item
+	      \ressubheading
+	      {MonoDepthNet}{}
+	      {Neural network for unsupervised single-image depth estimation}{}
+	      \begin{itemize}[leftmargin=*]
+		      \resitem{Implemented and trained a convolutional neural network in \textbf{Python} with \textbf{PyTorch} to perform depth estimation from a single image by following the \href{https://arxiv.org/pdf/1609.03677.pdf}{paper} by Godard et al.}
+		      \resitem{Trained the model to achieve decent qualitative results on unseen images using only a small percentage of the KITTI dataset.}
+	      \end{itemize}
+
 	\item
 	      \ressubheading
 	      {uwScheduler}{\href{https://github.com/stevenw47/uwScheduler}{\faicon{github}}}
 	      {To schedule your UWaterloo courses}{}
 	      \begin{itemize}[leftmargin=*]
-		      \resitem{Developed a calendar-like dashboard in \textbf{React} and \textbf{Go} for students to input courses they are interested in and visually see all course offerings.}
+		      \resitem{Developed a calendar-like dashboard in \textbf{React} and \textbf{Go} for students to input courses they are interested in and easily see all course offerings.}
 		      \resitem{Facilitated the development and deployment process by containerizing the app with \textbf{Docker}.}
 	      \end{itemize}
 
@@ -191,28 +180,27 @@
 	      {Replica of the board game `Coup', meant for augmented real-life gameplay}{}
 	      \begin{itemize}[leftmargin=*]
 		      \resitem{Implemented the core game in \textbf{Vue} with a room system to allow for concurrent games.}
-		      \resitem{Used \textbf{Vue Apollo} to send \textbf{GraphQL} queries \& mutations for updating the player's cards.}
+		      \resitemlast{Used \textbf{Vue Apollo} to send \textbf{GraphQL} queries \& mutations for updating the player's cards.}
 	      \end{itemize}
-
-	\item
-	      \ressubheading
-	      {Vm}{}
-	      {Vim-like text editor}{}
-	      \begin{itemize}[leftmargin=*]
-		      \resitem{Created classes in \textbf{C++14} to perform file operations and render the display using \textbf{ncurses}.}
-		      \resitemlast{Used \textbf{OOP} design, including the decorator and template method pattern, for strong abstraction.}
-	      \end{itemize}
+	      % \item
+	      %       \ressubheading
+	      %       {Vm}{}
+	      %       {Vim-like text editor}{}
+	      %       \begin{itemize}[leftmargin=*]
+	      % 	      \resitem{Created classes in \textbf{C++14} to perform file operations and render the display using \textbf{ncurses}.}
+	      % 	      \resitemlast{Used \textbf{OOP} design, including the decorator and template method pattern, for strong abstraction.}
+	      %       \end{itemize}
 \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheadingrest{Education}
+\resheading{Education}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}[topsep=0pt] % topsep removes spacing on top
+\begin{itemize}[topsep=0pt]
 	\item % Bachelor of Mathematics
 	      \ressubheading{University of Waterloo}{Waterloo, Canada}{BMath in Computer Science and Combinatorics \& Optimization}{2017 - Present}
 	      \begin{itemize}[leftmargin=*]
-		      \resitemlast{3.89 GPA, Term Dean's Honours List}
+		      \resitemlast{3.89 GPA, Term Dean's Honours List.}
 	      \end{itemize}
 \end{itemize}
 
