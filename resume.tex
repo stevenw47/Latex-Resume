@@ -32,10 +32,8 @@
 %Edit these values as you see fit
 
 \setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
-%\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
-\definecolor{shadecolor}{gray}{1}
-%\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
-\definecolor{shadecolorB}{gray}{0.93}
+\definecolor{shadecolor}{gray}{1} % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93} % Inner background color of title bars
 
 
 %-----------------------------------------------------------
@@ -55,153 +53,168 @@
 \setlength{\textwidth}{7in}
 %previous-\setlength{\topmargin}{-0.3in}
 %decrease topmargin to reduce white space on top
-\setlength{\topmargin}{-0.85in}
+% \setlength{\topmargin}{-0.85in}
+\setlength{\topmargin}{-0.75in}
 \setlength{\topskip}{0in}
 \setlength{\voffset}{0.1in}
 
 
 %-----------------------------------------------------------
 %Custom commands
-\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{\vspace{-6pt}
+\newcommand{\restitle}[5]{
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+	\multirow{2}{*}{\textbf{\Huge #1}} & \href{mailto:#3}{#3 \faicon{envelope}} \\
+	                                   & \href{https://www.linkedin.com/in/#4/}{#4 \faicon{linkedin}} \\
+	#2                                 & \href{https://www.github.com/#5}{#5 \faicon{github}}
+\end{tabular*}
+}
+
+\newcommand{\resheading}[1]{\vspace{-10pt}
   \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
     \begin{shaded}
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}
+      \setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}
     \end{shaded}
   }\vspace{-5pt}
 }
-\newcommand{\ressubheading}[4]{\vspace{-1pt}
-\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
-		\textbf{#1} & #2 \\
-		\textit{#3} & \textit{#4} \\
+\definecolor{mycolor}{gray}{0.2}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.6in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+	% \textbf{\large #1} & #2 \\
+	\textbf{\large{#1}} & \small{#2} \\
+	% \textit{#3}        & \textit{#4}
+	\textcolor{mycolor}{#3}        & \textcolor{mycolor}{#4}
 \end{tabular*}\vspace{-6pt}}
-%-----------------------------------------------------------
+
+\newcommand{\highlight}[1]{\textbf{#1}}
+
 
 %-----------------------------------------------------------
-%Own custom commands to adjust white space
+%Custom environments
+\newenvironment{outerItemize}
+{\begin{itemize}[leftmargin=0.3in, topsep=0pt]}
+{\end{itemize}}
 
-%item used for last item to reduce white space between last item and new header
-\newcommand{\resitemlast}[1]{\item #1 \vspace{-6pt}}
-%-----------------------------------------------------------
 
+\newenvironment{innerItemize}
+{\begin{itemize}[leftmargin=*, itemsep=0.5pt]}
+{\vspace{-2pt}\end{itemize}}
 
 
 \begin{document}
 
-\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-	\multirow{2}{*}{\textbf{\Huge Steven Wong}} & \href{mailto:slnwong@uwaterloo.ca}{slnwong@uwaterloo.ca \faicon{envelope}} \\
-	& \href{https://www.linkedin.com/in/stevenlnwong/}{stevenlnwong \faicon{linkedin}} \\
-	US Citizen & \href{https://www.github.com/stevenw47}{stevenw47 \faicon{github}}
-\end{tabular*}
-% \vspace{-8pt}
-% \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-% 	\multirow{2}{*}{\textbf{\Huge Steven Wong}} & \faicon{envelope} \href{mailto:slnwong@uwaterloo.ca}{slnwong@uwaterloo.ca} \\
-% 	& \faicon{github} \href{https://www.github.com/stevenw47}{github.com/stevenw47}
-% \end{tabular*}
-% \vspace{-4pt}
+\restitle
+{Steven Wong}{US Citizen}
+{slnwong@uwaterloo.ca}{stevenlnwong}{stevenw47}
+\vspace{2pt}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \resheading{Technical Skills}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}[topsep=0pt]
-	\item Python (Django, NumPy), JavaScript (React, Node.js), Go, C++, Git, Docker.
-\end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Experience}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}[topsep=0pt]
-	\item
-	      \ressubheading
-	      {SAP}{Waterloo, Canada}
-	      {Software Developer}{Sept. 2020 - Dec. 2020}
-	      \begin{itemize}[leftmargin=*]
-		      \resitem{Worked in the streaming analytics team.}
-	      \end{itemize}
-
-	\item
-	      \ressubheading
-	      {BioRender}{Toronto, Canada}
-	      {Software Developer}{Jan. 2020 - May 2020}
-	      \begin{itemize}[leftmargin=*]
-		      %   \resitem{Improved the premium user experience by implementing gradient shape fill, icon brushes, and better canvas resizing, using \textbf{React} with \textbf{TypeScript} and \textbf{Fabric.js}.}
-		      \resitem{Enhanced the graphical toolkit for premium users using \textbf{React}, \textbf{TypeScript}, and \textbf{Fabric.js}.}
-		      \resitem{Implemented many new customizable shapes in the canvas editor, incorporating OOP concepts (such as SOLID and the decorator pattern) for strong abstraction.}
-		      \resitem{Designed and developed a major priority for the company (details undisclosed).}
-	      \end{itemize}
-
-	\item
-	      \ressubheading
-	      {Secret Mission Software}{Toronto, Canada}
-	      {Software Developer}{May 2019 - Aug. 2019}
-	      \begin{itemize}[leftmargin=*]
-		      \resitem{Built and integrated features using \textbf{React}, \textbf{Python}, and \textbf{PostgreSQL}, including floor plan editing, XML generation, and push notifications, for the Findspace client.}
-		      \resitem{Developed SDKs using \textbf{Express} and \textbf{MongoDB} to automate company workflows.}
-		      \resitem{Automated the migration of old client data, reducing the time spent per migration by $\sim$33\%.}
-	      \end{itemize}
-
-	\item
-	      \ressubheading
-	      {Greatwall Ledlight}{Hong Kong}
-	      {Software Developer}{June 2018 - Aug. 2018}
-	      \begin{itemize}[leftmargin=*]
-		      \resitemlast{Developed an internal system with \textbf{Django} to streamline the process of tracking and managing customer orders and shipments.}
-	      \end{itemize}
-\end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Projects}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}[topsep=0pt]
-	\item
-	      \ressubheading
-	      {MonoDepthNet}{}
-	      {Neural network for unsupervised single-image depth estimation}{}
-	      \begin{itemize}[leftmargin=*]
-		      \resitem{Implemented and trained a convolutional neural network in \textbf{Python} with \textbf{PyTorch} to perform depth estimation from a single image by following the \href{https://arxiv.org/pdf/1609.03677.pdf}{paper} by Godard et al.}
-		      \resitem{Trained the model to achieve decent qualitative results on unseen images using only a small percentage of the KITTI dataset.}
-	      \end{itemize}
-
-	\item
-	      \ressubheading
-	      {uwScheduler}{\href{https://github.com/stevenw47/uwScheduler}{\faicon{github}}}
-	      {To schedule your UWaterloo courses}{}
-	      \begin{itemize}[leftmargin=*]
-		      \resitem{Developed a calendar-like dashboard in \textbf{React} and \textbf{Go} for students to input courses they are interested in and easily see all course offerings.}
-		      \resitem{Facilitated the development and deployment process by containerizing the app with \textbf{Docker}.}
-	      \end{itemize}
-
-	\item
-	      \ressubheading
-	      {koup}{\href{https://github.com/stevenw47/koup}{\faicon{github}}}
-	      {Replica of the board game `Coup', meant for augmented real-life gameplay}{}
-	      \begin{itemize}[leftmargin=*]
-		      \resitem{Implemented the core game in \textbf{Vue} with a room system to allow for concurrent games.}
-		      \resitemlast{Used \textbf{Vue Apollo} to send \textbf{GraphQL} queries \& mutations for updating the player's cards.}
-	      \end{itemize}
-	      % \item
-	      %       \ressubheading
-	      %       {Vm}{}
-	      %       {Vim-like text editor}{}
-	      %       \begin{itemize}[leftmargin=*]
-	      % 	      \resitem{Created classes in \textbf{C++14} to perform file operations and render the display using \textbf{ncurses}.}
-	      % 	      \resitemlast{Used \textbf{OOP} design, including the decorator and template method pattern, for strong abstraction.}
-	      %       \end{itemize}
-\end{itemize}
+\begin{outerItemize}
+	\item Python (Django, NumPy), JavaScript/TypeScript (React, Node.js), Go, C++, Git, Docker.
+	% \item JavaScript/TypeScript (React, Node.js), Python (Django, NumPy), Go, C++, Git, Docker.
+\end{outerItemize}
+\vspace{6.2pt} % magic number
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \resheading{Education}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}[topsep=0pt]
-	\item % Bachelor of Mathematics
-	      \ressubheading{University of Waterloo}{Waterloo, Canada}{BMath in Computer Science and Combinatorics \& Optimization}{2017 - Present}
-	      \begin{itemize}[leftmargin=*]
-		      \resitemlast{3.89 GPA, Term Dean's Honours List.}
-	      \end{itemize}
-\end{itemize}
+\begin{outerItemize}
+	\item
+	\ressubheading
+	{University of Waterloo}{Waterloo, Canada}
+	{Bachelor of Mathematics}{2017 - 2022 (Expected)}
+	\begin{innerItemize}
+		\item Double major in \highlight{Computer Science} and \highlight{Combinatorics \& Optimization}.
+		\item 3.91 GPA, Term Dean's Honours List.
+	\end{innerItemize}
+\end{outerItemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{outerItemize}
+	\item
+	\ressubheading
+	{Wish}{Toronto, Canada}
+	{Software Engineer Intern}{Sep 2021 $-$ Present}
+	\begin{innerItemize}
+		\item Working in the Marketplace \& Logistics Framework team on the backend using \highlight{Python}.
+	\end{innerItemize}
+
+	\item
+	\ressubheading
+	{Amazon (AWS)}{Vancouver, Canada}
+	{Software Engineer Intern}{May 2021 $-$ Aug 2021}
+	\begin{innerItemize}
+		\item Created an extensible package in \highlight{Python} for preprocessing AWS CloudFormation Modules.
+		\item Implemented behavior for bundling individual module fragments into a single module template.
+		\item Improved the user's module development process by integrating with the CloudFormation CLI.
+	\end{innerItemize}
+
+	\item
+	\ressubheading
+	{SAP}{Waterloo, Canada}
+	{Software Developer Intern}{Sep 2020 $-$ Dec 2020}
+	\begin{innerItemize}
+		\item Extended the streaming analytics service for JMS and AMQP adapter support.
+	\end{innerItemize}
+
+	\item
+	\ressubheading
+	{BioRender}{Toronto, Canada}
+	{Software Developer Intern}{Jan 2020 $-$ May 2020}
+	\begin{innerItemize}
+		\item Eliminated the need for many static icons by implementing an icon brush tool and various customizable shapes for the canvas editor, using \highlight{React}, \highlight{TypeScript}, and \highlight{Fabric.js}.
+		\item Revamped the color select component with gradient colors and added previewing for easier use.
+		\item Developed and iterated on a prototype for allowing users to create and edit slides of figures.
+	\end{innerItemize}
+
+	\item
+	\ressubheading
+	{Secret Mission Software}{Toronto, Canada}
+	{Software Developer Intern}{May 2019 $-$ Aug 2019}
+	\begin{innerItemize}
+		\item Automated manual workflows between different tools using \highlight{Express} and \highlight{MongoDB}.
+		\item Built and integrated features using \highlight{React}, \highlight{Python}, and \highlight{PostgreSQL} for the Findspace client.
+	\end{innerItemize}
+\end{outerItemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Projects}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{outerItemize}
+	\item
+	\ressubheading
+	{MonoDepthNet}{}
+	{Neural network for unsupervised single-image depth estimation}{}
+	\begin{innerItemize}
+		\item Implemented a convolutional neural network in \highlight{Python} with \highlight{PyTorch} to perform depth estimation from a single image by following the \href{https://arxiv.org/pdf/1609.03677.pdf}{paper} by Godard et al.
+		\item Trained the model to achieve good qualitative results on unseen images.
+	\end{innerItemize}
+
+	\item
+	\ressubheading
+	{uwScheduler}{\normalsize{\href{https://github.com/stevenw47/uwScheduler}{\faicon{github}}}}
+	{To schedule your UWaterloo courses}{}
+	\begin{innerItemize}
+		\item Developed a calendar-like dashboard in \highlight{React} and \highlight{Go} for students to input courses they are interested in and easily see all course offerings.
+		\item Facilitated the development and deployment process by containerizing the app with \highlight{Docker}.
+	\end{innerItemize}
+
+	% \item
+	% \ressubheading
+	% {Vm}{}
+	% {Vim-like text editor}{}
+	% \begin{innerItemize}
+	% 	\item Implemented classes in \highlight{C++14} to perform internal file operations (e.g. insert, search, delete, save), and to correctly render the screen and cursor using \highlight{ncurses}.
+	% 	\item Used OOP design, such as the decorator and template method pattern, for strong abstraction.
+	% \end{innerItemize}
+\end{outerItemize}
+
 
 \end{document}
